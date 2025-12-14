@@ -670,7 +670,7 @@
           </div>
 
           <div class="actions">
-            <a class="chip" id="mapsBtn" href="#" target="_blank" rel="noopener">📍 Location on Google Maps</a>
+            <a class="chip" id="mapsBtn" href="https://maps.app.goo.gl/M5KgciodwTRpr6V96" target="_blank" rel="noopener">📍 Location on Google Maps</a>
           </div>
 
           <p class="tiny">Tip: Tap the location button to open Google Maps.</p>
@@ -933,6 +933,7 @@
       burst(rect.left + rect.width * 0.25, rect.top + rect.height * 0.55, 180, 1.25);
       burst(rect.left + rect.width * 0.75, rect.top + rect.height * 0.55, 180, 1.25);
 
+      // Play the background music immediately when the user clicks to open.
       tryPlayAudio();
 
       setTimeout(() => {
@@ -940,6 +941,8 @@
         initScrollAnimations();
         initCountdown();
         attachForm();
+        // Ensure music is playing after the second page is displayed
+        tryPlayAudio();
       }, 860);
     });
 
@@ -961,7 +964,8 @@
     });
 
     // Maps button
-    mapsBtn.href = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(CONFIG.mapsSearchQuery)}`;
+    // Set the location link to open the specified URL directly.
+    mapsBtn.href = "https://maps.app.goo.gl/M5KgciodwTRpr6V96";
 
     // Scroll reveal + glitter transitions
     let lastScrollY = 0;
